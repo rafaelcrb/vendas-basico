@@ -1,27 +1,103 @@
-Descrição: Desenvolvi um sistema de vendas em Python com o objetivo de gerenciar produtos, clientes e realizar transações de vendas de maneira eficiente. Este projeto inclui funcionalidades essenciais para qualquer sistema de vendas, como o cadastro e listagem de produtos e clientes, além de um processo simplificado de vendas com opções de pagamento variadas.
-Principais Funcionalidades:
-•	Cadastro de Produtos: Permite o registro de novos produtos no sistema com nome, preço e quantidade em estoque.
-•	Listagem de Produtos: Exibe todos os produtos cadastrados com seus respectivos códigos, nomes, preços e quantidades disponíveis.
-•	Cadastro de Clientes: Registra informações dos clientes, como nome, idade e endereço.
-•	Listagem de Clientes: Exibe todos os clientes cadastrados com seus respectivos códigos, nomes, idades e endereços.
-•	Processo de Venda: Permite a realização de vendas, escolhendo produtos disponíveis em estoque, especificando a quantidade desejada e selecionando a forma de pagamento.
-•	Opções de Pagamento: Oferece três formas de pagamento (cartão de crédito, dinheiro e Pix) com descontos ou acréscimos aplicáveis.
-Desenvolvimento:
-1.	Cadastro de Produtos:
-o	Utilizei a função cadastro_produto() para receber os dados do produto via input, armazenar em uma lista temporária e adicionar à lista principal produtos.
-o	Implementação de um loop para permitir múltiplos cadastros de produtos em sequência.
-2.	Listagem de Produtos:
-o	A função listarProdutos() percorre a lista produtos e exibe as informações formatadas de cada produto cadastrado.
-3.	Cadastro de Clientes:
-o	Similar ao cadastro de produtos, a função cadastro_clientes() recebe os dados do cliente e armazena em uma lista temporária que é adicionada à lista principal clientes.
-4.	Listagem de Clientes:
-o	A função listarClientes() exibe as informações de cada cliente cadastrado de maneira formatada.
-5.	Processo de Venda:
-o	A função vender() integra as funções de listagem de produtos, escolha de produto, verificação de estoque e seleção de quantidade.
-o	Inclui também a chamada da função pagamento() para definir o método de pagamento e aplicar os descontos ou acréscimos necessários.
-6.	Opções de Pagamento:
-o	A função pagamento() apresenta as opções de pagamento e aplica os descontos ou acréscimos com base na escolha do cliente.
-Conclusão: Este projeto em Python demonstrou a aplicação prática de estruturas de dados como listas bidimensionais, além do uso de funções para modularizar e organizar o código. O sistema de vendas criado serve como uma base sólida para futuros desenvolvimentos, podendo ser expandido para incluir funcionalidades adicionais, como relatórios de vendas e gestão de inventário.
+# Documentação Técnica - Sistema de Vendas Básico
 
-Repositório GitHub:
-O código-fonte do projeto está disponível no https://github.com/rafaelcrb/vendas-basico.git
+## 1. Visão Geral
+
+Este projeto implementa um sistema de vendas básico em Python, operado via console. Ele permite o cadastro e listagem de produtos e clientes, bem como a realização de vendas, incluindo verificação de estoque e opções de pagamento.
+
+## 2. Estrutura do Projeto
+
+A estrutura do projeto é composta por um único arquivo Python:
+
+```
+vendas-basico/
+├── SistemaVendas_Parcial.py    # Código principal do sistema de vendas
+└── README.md                   # Arquivo de documentação do projeto
+```
+
+## 3. Tecnologias Utilizadas
+
+*   **Python**: Linguagem de programação principal.
+
+## 4. Funcionalidades Principais
+
+O sistema é dividido em várias funções, cada uma responsável por uma parte da lógica de negócio:
+
+### `cadastro_produto()`
+
+*   Permite ao usuário inserir o nome, preço e quantidade em estoque de um novo produto.
+*   Armazena os dados do produto em uma lista global `produtos`.
+*   Inclui uma opção para cadastrar múltiplos produtos sequencialmente.
+
+### `listarProdutos()`
+
+*   Exibe uma lista formatada de todos os produtos cadastrados, incluindo código, nome, preço e quantidade em estoque.
+
+### `cadastro_clientes()`
+
+*   Permite ao usuário inserir o nome, idade e endereço de um novo cliente.
+*   Armazena os dados do cliente em uma lista global `clientes`.
+*   Inclui uma opção para cadastrar múltiplos clientes sequencialmente.
+
+### `listarClientes()`
+
+*   Exibe uma lista formatada de todos os clientes cadastrados, incluindo código, nome, idade e endereço.
+
+### `vender()`
+
+*   Guia o usuário através do processo de venda.
+*   Primeiro, lista os produtos disponíveis para que o usuário escolha.
+*   Solicita a quantidade desejada e verifica a disponibilidade em estoque.
+*   Se houver estoque suficiente, chama a função `pagamento()` e exibe um resumo da venda, atualizando o estoque do produto.
+*   Caso contrário, informa que a quantidade é indisponível.
+
+### `pagamento()`
+
+*   Apresenta opções de pagamento (Cartão de Crédito, Dinheiro, Pix).
+*   Aplica acréscimos ou descontos fictícios com base na opção escolhida.
+
+## 5. Estruturas de Dados Globais
+
+*   **`clientes`**: Uma lista de listas, onde cada sublista representa um cliente com seus dados (nome, idade, endereço).
+*   **`produtos`**: Uma lista de listas, onde cada sublista representa um produto com seus dados (nome, preço, quantidade em estoque).
+
+## 6. Fluxo de Operação
+
+O sistema opera através de um menu principal interativo em um loop `while`:
+
+1.  O menu exibe as opções disponíveis: Cadastrar Produto, Listar Produtos, Cadastrar Clientes, Listar Clientes, Vender e Sair.
+2.  O usuário digita um número correspondente à opção desejada.
+3.  A função apropriada é chamada com base na escolha do usuário.
+4.  O loop continua até que o usuário escolha a opção 'Sair'.
+
+## 7. Configuração e Execução
+
+Para configurar e executar o projeto em seu ambiente local, siga os passos abaixo:
+
+### Pré-requisitos
+
+*   Python 3.x
+
+### Instalação
+
+Não há dependências externas complexas. Basta clonar o repositório:
+
+```bash
+git clone https://github.com/rafaelcrb/vendas-basico.git
+cd vendas-basico
+```
+
+### Execução
+
+1.  Navegue até o diretório do projeto.
+2.  Execute o script Python:
+    ```bash
+    python SistemaVendas_Parcial.py
+    ```
+
+## 8. Considerações de Desenvolvimento
+
+*   Este é um projeto console-based, ideal para demonstrar conceitos básicos de lógica de programação e interação com o usuário.
+*   Os dados (clientes e produtos) são armazenados em memória e não são persistentes; eles são perdidos ao encerrar o programa.
+*   A validação de entrada do usuário é básica.
+*   O uso de `os.system('cls')` e `os.system('pause')` é específico para sistemas Windows e pode não funcionar em outros sistemas operacionais sem adaptações.
+
